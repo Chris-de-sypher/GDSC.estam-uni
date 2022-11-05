@@ -1,0 +1,328 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin DashBoard</title>
+    <link rel="stylesheet" href="./style/events.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/regular.min.css"
+      integrity="sha512-aNH2ILn88yXgp/1dcFPt2/EkSNc03f9HBFX0rqX3Kw37+vjipi1pK3L9W08TZLhMg4Slk810sPLdJlNIjwygFw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- BoxIcons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Animated.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- font-family -->
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+    <!-- email sender -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("ypLbfq9qWJNJFklbq");
+      }());
+
+      // Email sender
+    function Emailsender() {
+      var templateParams = {
+    from_name: document.querySelector("#fromname").value,
+    to_name: document.querySelector("#toname").value,
+    message: document.querySelector("#msg").value,
+  };
+
+  emailjs.send("service_r5iimid", "template_emz22ss", templateParams).then(
+    function (response) {
+      alert("SUCCESS!", response.status, response.text);
+    },
+    function (error) {
+      alert("FAILED...", error);
+    }
+  );
+  document.querySelector("#fromname").value = ''
+  document.querySelector("#toname").value = ''
+  document.querySelector("#msg").value = ''
+}
+
+    </script>
+  </head>
+  <body>
+    <div id="navbar">
+      <div class="mat">
+        <a id="img-get"><img alt="" id="images" /></a>
+      </div>
+      <ul>
+        <li id="clik" class="lin">
+          <span id="icon-hid"><i class="fa-solid fa-house"></i></span> <span class="lins">Events</span>
+        </li>
+        <li class="lin" id="cl">
+          <span id="icon-hid"><i class="fa-solid fa-plus"></i></span> <span class="lins">Create
+          Events</span>
+        </li>
+        <li class="lin" id="vl">
+          <span id="icon-hid"><i class="fa-solid fa-user"></i></span> <span class="lins">Admins</span>
+        </li>
+        <li class="lin" id="gl">
+          <span id="icon-hid"><i class="fa-solid fa-gear"></i></span> <span class="lins">settings</span>
+        </li>
+      </ul>
+      <div class="d">
+        <a id="close"><i class="bx bx-log-out"></i> <span class="lins">Logout</span></a>
+      </div>
+    </div>
+    <main>
+      <div class="tt">
+        <h3 align="center">Hi, <span id="username"></span></h3>
+      </div>
+      <div class="icons-for-res">
+        <span
+          ><i class="fa-solid fa-arrow-left-long"></i
+          ><i class="fa-solid fa-xmark"></i
+        ></span>
+        <span
+          ><i class="fa-solid fa-arrow-right-from-bracket"></i
+          ><i class="fa-solid fa-ban"></i></span>
+      </div>
+      <div class="create-evt" id="one">
+        <div class="first">
+          <div class="btn-round">
+            <label for="Namebox">Event title:</label>
+            <input type="text" name="Namebox" id="Namebox" />
+          </div>
+          <br /><br />
+          <div class="separate">
+            <div class="flex">
+              <label for="Rollbox">Event number:</label>
+              <input type="number" name="rolbox" id="rolbox" />
+            </div>
+            <div class="flexs">
+              <label for="Sectionbox">Event type:</label>
+              <input type="text" name="Secbox" id="Secbox" />
+            </div>
+          </div>
+          <br /><br />
+          <div class="date-time">
+            <div class="gen">
+              <label for="Genderbox">Location:</label>
+              <input type="text" name="Genderbox" id="Genderbox" />
+            </div>
+            <div class="dates">
+              <label for="date-and-time">Event date and time:</label>
+              <input type="datetime-local" id="text" />
+            </div>
+          </div>
+          <br />
+          <!-- <button id="Insert">Insert</button> -->
+          <!-- <button id="select">select</button> -->
+          <button id="update">update</button>
+          <button id="Delete">Delete</button>
+        </div>
+        <div class="second">
+          <label for="">Image name:</label>
+          <input type="text" id="textfield" /> <label id="extlab"></label>
+          <div class="difs">
+            <img id="image" />
+            <button type="button" id="set">Set</button>
+          </div>
+          <label id="upprogress"></label>
+          <button id="selects">select</button>
+          <!-- <button id="upload">upload</button> -->
+          <!-- <button id="retrieve">Download</button> -->
+        </div>
+        <div class="float">
+          <button type="submit" id="submit">Save</button>
+        </div>
+
+        <form id="forms">
+          <input
+            type="text"
+            name="ftext"
+            id="ftext"
+            placeholder="Input link URL"
+          />
+          <button type="submit" id="bttn">Add</button>
+        </form>
+      </div>
+      <br />
+      <div id="event-space" hidden>
+        <div class="event-card" id="two">
+            <div class="event-not">
+                <h1>No event set yet</h1>
+            </div>
+          <li class="card">
+            <div class="img">
+              <img alt="" id="banner" />
+            </div>
+            <div class="title-speaker">
+              <div class="title-text">
+                <h1 id="title">title</h1>
+              </div>
+            </div>
+            <div class="location">
+              <p>
+                <i class="fa-solid fa-location-dot"></i>
+                <span id="location"></span>
+              </p>
+            </div>
+            <div class="speaker">
+              <p><i class="fa-solid fa-house"></i> <span  style="color:skyblue;" id="venue"></span></p>
+            </div>
+            <hr />
+            <div class="time-and-date">
+              <div class="date">
+                <p>
+                  <i class="fa-solid fa-calendar-days"></i>
+                  <span id="date"></span>
+                </p>
+                <p>
+                  <i class="fa-regular fa-clock"></i
+                  ><span id="hour"></span>:<span id="minutes"></span>:<span
+                    id="sect"
+                  ></span>
+                </p>
+              </div>
+              <div class="button-btn">
+                <span><a id="register" target="_blank">Register</a></span>
+              </div>
+            </div>
+          </li>
+          <button type="button" id="publish">Publish</button>
+        </div>
+      </div>
+      <br />
+      <div class="admin-dash" hidden>
+        <div class="admins-headlines">
+          <div class="admin-character"></div>
+        </div>
+      </div>
+      <br />
+      <div class="settings-pl" hidden>
+        <div class="settings-b">
+          <div class="settings-ev">
+            <div class="settings-card">
+              <div class="settings-label">
+                <div class="bg-change">
+                  <h3>Change background</h3>
+                  <div class="add-color">
+                    <h3>Add color as background</h3>
+                    <div class="bg-grid">
+                      <span data-color="#6e082b" class="coloring"></span>
+                      <span data-color="#150438" class="coloring"></span>
+                      <span data-color="#15471a" class="coloring"></span>
+                      <span data-color="#7d7b06" class="coloring"></span>
+                      <span data-color="#6e0e08" class="coloring"></span>
+                      <span data-color="#151554" class="coloring"></span>
+                    </div>
+                    <button id="add-colors">Add</button>
+                  </div>
+                  <div class="bg-changer">
+                    <div class="cover">
+                      <h3>Add image as background</h3>
+                      <div class="pics">
+                        <span
+                          data-image="./tree-736885_1280.jpg"
+                          class="img-bg-span"
+                        ></span>
+                        <span
+                          data-image="./tree-838667_1280.jpg"
+                          class="img-bg-span"
+                        ></span>
+                        <span
+                          data-image="./phone-wallpaper-1914130_1920.jpg"
+                          class="img-bg-span"
+                        ></span>
+                      </div>
+                      <button id="add">upload</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="note">
+                  <h3>Send Email</h3>
+                  <div class="task-note">
+                    <form method="POST" id="myforms">
+                      <input
+                        type="text"
+                        name="fromname"
+                        id="fromname"
+                        placeholder="sender name"
+                      />
+                      <input
+                        type="text"
+                        name="toname"
+                        id="toname"
+                        placeholder="receiver name"
+                      />
+                      <textarea
+                        name="message"
+                        id="msg"
+                        placeholder=""
+                      ></textarea>
+                      <input
+                        type="button"
+                        value="Send Email"
+                        onclick="Emailsender();"
+                      />
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="second-nav animate__animated">
+      <div class="second-nav-con">
+        <div class="user-dash">
+          <div class="input">
+            <div class="grid-them">
+              <div class="mic">
+                <button class="talk">
+                  <i class="fas fa-microphone-alt"></i>
+                </button>
+              </div>
+              <div class="text">
+                <span class="content"> Click here to speak </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="iframe">
+          <h4 style="color:aliceblue;font-size:1.1rem;">Youtube embed</h4>
+          <iframe width="180" height="200" src="https://www.youtube-nocookie.com/embed/JFCgyQNW88w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <br>
+        </div>
+      </div>
+    </div>
+
+    <script src="./events.js" type="module" charset="UTF-8" defer></script>
+    <!-- typewritter js -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/2.19.0/core.min.js"
+      integrity="sha512-t4NGjfaRaGCjmiTGBsiG3w8FCp8ZY7dPlwZAXfeoGPARUT/rt3OP0NpQkblSgZy/2R8vPTXiEcq/zcWIJ8NusQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>

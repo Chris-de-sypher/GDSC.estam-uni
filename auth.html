@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authention</title>
+    <link rel="stylesheet" href="./auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+    <div class="overlay"></div>
+    <div class="wrapper">
+    <div class="not-logged-in" align="center">
+        <h3 align="center">Please log in as Admin</h3>
+        <form>
+            <div class="span">
+                <span id="error"></span>
+                <span id="succ"></span>
+                <p id="message"></p>
+            </div>
+            <div class="div">
+            <input type="text" name="mytext" id="mytext" placeholder="Fullname"> <br>
+            <input type="password" name=" mypass" id="mypass" placeholder="password"><span id="dis"><i class="fa-solid fa-eye"></i></span><span id="hidden"><i class="fa-solid fa-eye-slash"></i></span>
+            <div class="center">
+            <button type="submit">Login</button>
+            </div>
+            </div> 
+            <div class="image">
+                <img src="./clipart.png" alt="">
+            </div>
+        </form>
+    </div>
+    <div class="logged-in">
+        <h3 align="center">You are logged in as <span id="name"></span></h3>
+        <div class="btn" align="center">
+        <a id="inp" target="_blank">Go to Admin</a> 
+        <a href="./index.html" id="logout">Logout</a>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+    <script src="./auth.js" type="module" defer></script>
+</body>
+</html>

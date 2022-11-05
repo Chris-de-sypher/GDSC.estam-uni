@@ -1,0 +1,8 @@
+{
+  "short_name": "GDSC website",
+  "name": "GDSC ESTAM website",
+  "start_url": "/",
+  "background_color": "#00D494",
+  "theme_color": "#00D494",
+  "display": "standalone"
+}
